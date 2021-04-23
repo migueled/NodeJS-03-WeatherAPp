@@ -1,10 +1,10 @@
 const request = require( 'request' );
-const key = require( './clave' );
-
-const urlWeatherStack = `http://api.weatherstack.com/current?access_key=${ key.keyWeatherStack() }&query=37.8267,-122.4233&units=m`;
+//--
+const geoCode = require( './utils/geocode' );
+/*const urlWeatherStack = `http://api.weatherstack.com/current?access_key=${ key.keyWeatherStack() }&query=37.8267,-122.4233&units=m`;
 const urlMapBox = `https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=${ key.keyMapBox() }&limit=5`;
 
-/*request({ url : urlWeatherStack , json : true } , ( error , response ) => {
+request({ url : urlWeatherStack , json : true } , ( error , response ) => {
     if( error ){
         console.log('Unable to connect to weather service');
     } else if( response.body.error ) {
@@ -15,7 +15,7 @@ const urlMapBox = `https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angel
         const weather_descriptions = response.body.current.weather_descriptions[0];
         console.log( `${ weather_descriptions } It is currently ${ temperature } out. It feels like ${ feelslike } degress out.` );
     }
-} );*/
+} );
 
 request({ url : urlMapBox , json : true } , ( error , response ) => {
     if( error ){
@@ -28,3 +28,13 @@ request({ url : urlMapBox , json : true } , ( error , response ) => {
         console.log( `Long: ${ long }, Lat: ${ lat }` );
     }
 } );
+------------------------*/
+
+//const urlWeatherStack = `http://api.weatherstack.com/current?access_key=${ key.keyWeatherStack() }&query=37.8267,-122.4233&units=m`;
+
+
+
+geoCode( 'boston' , ( error , data ) => {
+    console.log( 'Error' , error );
+    console.log( 'data' , data );
+});
